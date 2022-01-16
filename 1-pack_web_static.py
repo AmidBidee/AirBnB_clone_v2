@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 """
 file to practice use of Fabric
 """
@@ -7,6 +7,9 @@ import time
 
 
 def do_pack():
+    """
+    compress before sending
+    """
     timestr = time.strftime("%Y%m%d%H%M%S")
     try:
         local("mkdir -p versions")

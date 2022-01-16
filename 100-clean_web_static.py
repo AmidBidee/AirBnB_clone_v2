@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 """
 file to practice use of Fabric
 """
@@ -10,6 +10,9 @@ env.hosts = ['34.139.132.155', '34.75.141.79']
 
 
 def do_pack():
+    """
+    compress files before sending
+    """
     timestr = time.strftime("%Y%m%d%H%M%S")
     try:
         local("mkdir -p versions")
@@ -43,6 +46,9 @@ def do_deploy(archive_path):
 
 
 def deploy():
+    """
+    deploy web static
+    """
     try:
         archive_address = do_pack()
         val = do_deploy(archive_address)
@@ -52,6 +58,9 @@ def deploy():
 
 
 def do_clean(number=0):
+    """
+    clean up
+    """
     if number == 0 or number == 1:
         with cd.local('./versions/'):
             local("ls -lv | rev | cut -f 1 | rev | \
