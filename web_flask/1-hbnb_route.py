@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Flask app config"""
 
 from flask import Flask
 app = Flask(__name__)
@@ -6,11 +7,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    """say hello"""
     return "Hello HBNB!"
 
 
 @app.route('/hbnb')
 def hbnb():
+    """simply return hbnb"""
     return "HBNB"
 
 

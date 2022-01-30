@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Flask configs
+"""
 
 from flask import Flask
 app = Flask(__name__)
@@ -6,6 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_hbnb():
+    """say hello"""
     return "Hello HBNB!"
 
 if __name__ == "__main__":
