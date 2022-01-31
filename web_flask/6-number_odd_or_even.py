@@ -33,6 +33,7 @@ def python(s="is cool"):
     new_s = s.replace("_", " ")
     return "Python {}".format(new_s)
 
+
 @app.route('/number/<n>')
 def number(n):
     """check if number"""
