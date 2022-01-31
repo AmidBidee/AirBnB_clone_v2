@@ -37,7 +37,11 @@ def python(s="is cool"):
 @app.route('/number/<n>')
 def number(n):
     """check if number"""
-    return "{} is a number".format(n)
+    try:
+        n = int(n)
+        return "{} is a number".format(n)
+    except Exception:
+        abort(404)
 
 
 @app.route('/number_template/<int:n>')
