@@ -1,18 +1,20 @@
 #!/usr/bin/python3
 
-from models import *
+from models import storage
 from flask import Flask, render_template
 app = Flask(__name__)
 
 
 @app.route('/states')
 def states():
+    """retrieve all states"""
     states = storage.all("State")
     return render_template('9-states.html', states=states)
 
 
 @app.route('/states/<id>')
 def states_given_id(id):
+    """retrieve a state"""
     states = storage.all("State")
     found_state = ""
     for s_id in states:
@@ -25,6 +27,7 @@ def states_given_id(id):
 
 @app.teardown_appcontext
 def teardown(err):
+    """close all active db session"""
     storage.close()
 
 
