@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-"""Flask app config"""
-
+"""
+AirBnB Clone
+Flask config file
+"""
 from flask import Flask, abort, render_template
 from models import storage
 

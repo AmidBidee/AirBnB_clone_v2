@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-
+"""
+AirBnB Clone
+Flask config file
+"""
 from models import storage
 from flask import Flask, render_template
 app = Flask(__name__)
