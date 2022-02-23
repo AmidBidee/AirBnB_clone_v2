@@ -18,21 +18,31 @@ from models.base_model import Base
 
 # try to import config if available
 try:
-    from decouple import config as get_env
+    from decouple import config as getenv
 except ImportError:
-    get_env = os.environ.get
+    from os import getenv
 
 # environs and options
 env = {
     # environment settings to use
-    'environment': get_env('HBNB_ENV'),
+    'environment': getenv('HBNB_ENV'),
 
     # db connections
-    'mysql_user': get_env('HBNB_MYSQL_USER'),
-    'mysql_passwd': get_env('HBNB_MYSQL_PWD'),
-    'mysql_host': get_env('HBNB_MYSQL_HOST'),
-    'mysql_db': get_env('HBNB_MYSQL_DB'),
+    'mysql_user': getenv('HBNB_MYSQL_USER'),
+    'mysql_passwd': getenv('HBNB_MYSQL_PWD'),
+    'mysql_host': getenv('HBNB_MYSQL_HOST'),
+    'mysql_db': getenv('HBNB_MYSQL_DB'),
     'mysql_port': 3306,
+}
+
+    # mapped each models to a dict key
+models = {
+        'Amenity': amenity.Amenity,
+        'City': city.City,
+        'User': user.User,
+        'Place': place.Place,
+        'Review': review.Review,
+        'State': state.State
 }
 
 
@@ -43,15 +53,6 @@ class DBStorage:
     __engine = None
     __session = None
 
-    # mapped each models to a dict key
-    models = {
-        'Amenity': amenity.Amenity,
-        'City': city.City,
-        'User': user.User,
-        'Place': place.Place,
-        'Review': review.Review,
-        'State': state.State
-    }
 
     def __init__(self):
         """instantiates engine
@@ -82,19 +83,12 @@ class DBStorage:
             [dict]: Returns a dictionary of instances
         """
         objects = {}
-
-        if cls is not None:
-            # fetch a specific object instance
-            if cls not in self.models.keys():
-                return
-            for instance in self.__session.query(cls).all():
-                objects[instance.id] = instance
-
-        else:
-            # fetch all object instances instead
-            for cls_name in self.models.keys():
-                for instance in self.__session.query(cls_name).all():
-                    objects[instance.id] = instance
+        for mod in models:
+            if cls is None or cls is models[mod] or cls is mod:
+                objs = self.__session.query(models[mod]).all()
+                for obj in objs:
+                    key = obj.__class__.__name__ + '.' + obj.id
+                    objects[key] = obj
 
         return objects
 
@@ -138,11 +132,11 @@ class DBStorage:
     def reload(self):
         """reloads all a objects from the database
         """
-        Amenity = self.models['Amenity']
-        City = self.models['City']
-        User = self.models['User']
-        Place = self.models['Place']
-        State = self.models['State']
+        Amenity = models['Amenity']
+        City = models['City']
+        User = models['User']
+        Place = models['Place']
+        State = models['State']
 
         Base.metadata.create_all(self.__engine)
         self.__session = scoped_session(sessionmaker(

@@ -4,6 +4,7 @@ AirBnB Clone
 Flask config file
 """
 from flask import Flask, abort, render_template
+from models import *
 from models import storage
 
 app = Flask(__name__)

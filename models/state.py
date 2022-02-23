@@ -14,11 +14,11 @@ from sqlalchemy.orm import (
     backref
 )
 from os import getenv
-
+from models.city import City
 
 class State(BaseModel, Base):
     __tablename__ = "states"
-    if getenv('HBNB_TYPE_STORAGE', '') == 'db':
+    if models.storage_env == 'db':
         name = Column(String(128), nullable=False)
     else:
         name = ''
@@ -28,10 +28,10 @@ class State(BaseModel, Base):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    if getenv('HBNB_TYPE_STORAGE', '') != 'db':
+    if models.storage_env != 'db':
         @property
         def cities(self):
-            all_cities = models.storage.all("City")
+            all_cities = models.storage.all(City)
             temp = []
             for c_id in all_cities:
                 if all_cities[c_id].state_id == self.id:
