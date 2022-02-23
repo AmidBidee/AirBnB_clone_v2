@@ -16,6 +16,7 @@ from sqlalchemy.orm import (
 from os import getenv
 from models.city import City
 
+
 class State(BaseModel, Base):
     __tablename__ = "states"
     if models.storage_env == 'db':

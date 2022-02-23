@@ -35,14 +35,14 @@ env = {
     'mysql_port': 3306,
 }
 
-    # mapped each models to a dict key
+# mapped each models to a dict key
 models = {
-        'Amenity': amenity.Amenity,
-        'City': city.City,
-        'User': user.User,
-        'Place': place.Place,
-        'Review': review.Review,
-        'State': state.State
+    'Amenity': amenity.Amenity,
+    'City': city.City,
+    'User': user.User,
+    'Place': place.Place,
+    'Review': review.Review,
+    'State': state.State
 }
 
 
@@ -52,7 +52,6 @@ class DBStorage:
     """
     __engine = None
     __session = None
-
 
     def __init__(self):
         """instantiates engine

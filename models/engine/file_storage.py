@@ -13,7 +13,8 @@ from models.review import Review
 
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
-           
+
+
 class FileStorage:
     """manages storage of hbnb models in JSON format"""
     __file_path = 'file.json'
@@ -49,7 +50,6 @@ class FileStorage:
 
         with open(FileStorage.__file_path, mode="w", encoding="utf-8") as fd:
             fd.write(json.dumps(store))
-
 
     def reload(self):
         """deserializes the JSON file to __objects"""
