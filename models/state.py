@@ -31,11 +31,18 @@ class State(BaseModel, Base):
 
     if models.storage_env != 'db':
         @property
+        # def cities(self):
+        #     all_cities = models.storage.all(City)
+        #     temp = []
+        #     for c_id in all_cities:
+        #         if all_cities[c_id].state_id == self.id:
+        #             temp.append(all_cities[c_id])
+        #     return temp
         def cities(self):
+            """getter for list of city instances related to the state"""
+            city_list = []
             all_cities = models.storage.all(City)
-            temp = []
-            for c_id in all_cities:
-                if all_cities[c_id].state_id == self.id:
-                    temp.append(all_cities[c_id])
-
-            return temp
+            for city in all_cities.values():
+                if city.state_id == self.id:
+                    city_list.append(city)
+            return city_list
