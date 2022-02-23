@@ -1,47 +1,40 @@
 {
-  "State.55da98e2-4dfc-4af9-b32a-1506e5c7287d": {
-    "id": "55da98e2-4dfc-4af9-b32a-1506e5c7287d",
-    "created_at": "2022-02-23T07:28:08.366982",
-    "updated_at": "2022-02-23T07:28:08.367056",
+  "State.9f796100-9c61-43bc-a2d1-79543ffbbfe9": {
+    "id": "9f796100-9c61-43bc-a2d1-79543ffbbfe9",
+    "created_at": "2022-02-23T08:02:43.626998",
+    "updated_at": "2022-02-23T08:02:43.627053",
     "name": "California",
     "__class__": "State"
   },
-  "City.47ecd9d9-fe40-4b84-970a-1f809463527d": {
-    "id": "47ecd9d9-fe40-4b84-970a-1f809463527d",
-    "created_at": "2022-02-23T07:28:08.367594",
-    "updated_at": "2022-02-23T07:28:08.367665",
-    "state_id": "55da98e2-4dfc-4af9-b32a-1506e5c7287d",
+  "City.c6b0e5a0-84ea-43b3-b103-f8a049de4317": {
+    "id": "c6b0e5a0-84ea-43b3-b103-f8a049de4317",
+    "created_at": "2022-02-23T08:02:43.627517",
+    "updated_at": "2022-02-23T08:02:43.627571",
+    "state_id": "9f796100-9c61-43bc-a2d1-79543ffbbfe9",
     "name": "Fremont",
     "__class__": "City"
   },
-  "City.00ebf375-b152-46a6-84b6-0415d09e0549": {
-    "id": "00ebf375-b152-46a6-84b6-0415d09e0549",
-    "created_at": "2022-02-23T07:28:08.368108",
-    "updated_at": "2022-02-23T07:28:08.368176",
-    "state_id": "55da98e2-4dfc-4af9-b32a-1506e5c7287d",
+  "City.90ab8fb1-7671-4511-afc2-cdf08bdb97c5": {
+    "id": "90ab8fb1-7671-4511-afc2-cdf08bdb97c5",
+    "created_at": "2022-02-23T08:02:43.627958",
+    "updated_at": "2022-02-23T08:02:43.628000",
+    "state_id": "9f796100-9c61-43bc-a2d1-79543ffbbfe9",
     "name": "Napa",
     "__class__": "City"
   },
-  "State.affff909-8ec0-418e-956a-f86e1ec6bdb2": {
-    "id": "affff909-8ec0-418e-956a-f86e1ec6bdb2",
-    "created_at": "2022-02-23T07:28:08.368603",
-    "updated_at": "2022-02-23T07:28:08.368649",
+  "State.077cacaf-9dde-47cb-9c96-3ac6c6fb0c0a": {
+    "id": "077cacaf-9dde-47cb-9c96-3ac6c6fb0c0a",
+    "created_at": "2022-02-23T08:02:43.628455",
+    "updated_at": "2022-02-23T08:02:43.628491",
     "name": "California2",
     "__class__": "State"
   },
-  "City.4f1e8590-2e52-4d75-9694-9c29fabab252": {
-    "id": "4f1e8590-2e52-4d75-9694-9c29fabab252",
-    "created_at": "2022-02-23T07:28:08.369101",
-    "updated_at": "2022-02-23T07:28:08.369154",
-    "state_id": "affff909-8ec0-418e-956a-f86e1ec6bdb2",
+  "City.a61864db-e87c-4197-b97b-9e4229e012d8": {
+    "id": "a61864db-e87c-4197-b97b-9e4229e012d8",
+    "created_at": "2022-02-23T08:02:43.628922",
+    "updated_at": "2022-02-23T08:02:43.628974",
+    "state_id": "077cacaf-9dde-47cb-9c96-3ac6c6fb0c0a",
     "name": "Sonoma",
     "__class__": "City"
-  },
-  "State.55da98e2-4dfc-4af9-b32a-1506e5c7287e": {
-    "id": "55da98e2-4dfc-4af9-b32a-1506e5c7287d",
-    "created_at": "2022-02-23T07:28:08.366982",
-    "updated_at": "2022-02-23T07:28:08.367056",
-    "name": "California",
-    "__class__": "State"
   }
 }
